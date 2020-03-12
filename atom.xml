@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://megapost.io/"/>
-  <updated>2020-03-09T08:36:48.122Z</updated>
+  <updated>2020-03-12T13:20:27.551Z</updated>
   <id>https://megapost.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Ergonomic Mouse 개봉기</title>
+    <link href="https://megapost.io/2020/03/12/Microsoft-Ergonomic/"/>
+    <id>https://megapost.io/2020/03/12/Microsoft-Ergonomic/</id>
+    <published>2020-03-12T13:18:27.000Z</published>
+    <updated>2020-03-12T13:20:27.551Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="테스트-포스트"><a href="#테스트-포스트" class="headerlink" title="테스트 포스트"></a>테스트 포스트</h2><p><img src="/images/mouse/001.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;테스트-포스트&quot;&gt;&lt;a href=&quot;#테스트-포스트&quot; class=&quot;headerlink&quot; title=&quot;테스트 포스트&quot;&gt;&lt;/a&gt;테스트 포스트&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/mouse/001.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="개봉기" scheme="https://megapost.io/categories/%EA%B0%9C%EB%B4%89%EA%B8%B0/"/>
+    
+    
+      <category term="Microsoft" scheme="https://megapost.io/tags/Microsoft/"/>
+    
+      <category term="Mouse" scheme="https://megapost.io/tags/Mouse/"/>
+    
+      <category term="Ergonomic" scheme="https://megapost.io/tags/Ergonomic/"/>
+    
+  </entry>
   
   <entry>
     <title>Github blog 시작을 위한 Hexo 설정(Ubuntu 18.04 기준)</title>
