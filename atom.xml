@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://megapost.io/"/>
-  <updated>2020-03-25T05:48:29.479Z</updated>
+  <updated>2020-04-06T15:54:07.256Z</updated>
   <id>https://megapost.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://megapost.io/2020/03/25/TB3000A/"/>
     <id>https://megapost.io/2020/03/25/TB3000A/</id>
     <published>2020-03-25T02:12:18.000Z</published>
-    <updated>2020-03-25T05:48:29.479Z</updated>
+    <updated>2020-04-06T15:54:07.256Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="TB3000A-썬더볼트3-NVMe-외장-케이스-개봉기"><a href="#TB3000A-썬더볼트3-NVMe-외장-케이스-개봉기" class="headerlink" title="TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기"></a>TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기</h2><a id="more"></a><p><img src="/images/20200325-TB3000A/001.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/002.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/003.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/004.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/005.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/006.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/007.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/008.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/009.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/010.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/011.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/012.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/013.jpg" alt=""></p><p><img src="/images/20200325-TB3000A/014.jpg" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>기존 데스크탑은 Openstack 설치에 활용하기 위해 새로 구입한 맥북에 Windows를 설치 하려고 하던 중, 왠지 맥북에 Windows공간을 만드는 것이 아까워서 외장하드에 설치해볼까 해서 구매한 제품입니다.</p><p>결론적으론 아직도 설치를 못하고 삽질 중인데 ㅠㅠ 언젠간 해결이 됐으면 좋겠습니다. </p><p>(맥북프로 16인치 이후 버전부터 드라이버가 이상한건지 구성이 잘 안되네요.. 혹시 성공하신분 있으시면 알려주세요 ㅠㅠ)</p><a id="more"></a><p><img src="/images/20200325-TB3000A/001.jpg" alt=""></p><p>삼성 970Evo와 외장 케이스입니다. 썬더볼트 타입이기 때문에 성능은 잘 나오겠죠? 하지만 usb-c와 호환은 안됍니다.</p><p><img src="/images/20200325-TB3000A/002.jpg" alt=""></p><p>외장 케이스 박스 오픈…</p><p><img src="/images/20200325-TB3000A/003.jpg" alt=""></p><p>구성품은 파우치, 케이블, 외장케이스, 드라이버, 그리고 허술해보이는 방열판과 써멀패드가 들어있었습니다.</p><p><img src="/images/20200325-TB3000A/004.jpg" alt=""></p><p>드라이버는 옛날에 안경 볼트 조이라고 주던 그 드라이버입니다.<br>손에 맞지도 않고 품질도 별로라 바로 버려버리고 집에 있는 드라이버로 작업했네요.</p><p><img src="/images/20200325-TB3000A/005.jpg" alt=""></p><p>뚜껑을 편하게 열 수 있도록 스티커가 붙어있습니다.</p><p><img src="/images/20200325-TB3000A/006.jpg" alt=""></p><p>이건 보고 경악을 금치 못했는데, 고정할 수 있게 볼트를 조이는곳어 없이 그냥 덮으라는건가?</p><p><img src="/images/20200325-TB3000A/007.jpg" alt=""></p><p>ssd 개봉 모습입니다. 심플합니다.</p><p><img src="/images/20200325-TB3000A/008.jpg" alt=""></p><p>외장하드 케이스 뚜껑을 열어서</p><p><img src="/images/20200325-TB3000A/009.jpg" alt=""></p><p>SSD를 잘 넣고</p><p><img src="/images/20200325-TB3000A/010.jpg" alt=""></p><p>누른다음 위에 고정되도록 볼트만 조여주면 장착이 끝납니다.</p><p><img src="/images/20200325-TB3000A/011.jpg" alt=""></p><p>뚜껑을 덮기 전 잘 작동하는지 확인을 해보고..</p><p><img src="/images/20200325-TB3000A/012.jpg" alt=""></p><p>허술한 껌딱지를 붙여주고</p><p><img src="/images/20200325-TB3000A/013.jpg" alt=""></p><p>허술한 방열판을 그 위에 올려줍니다.</p><p>혹시나 방열판이 보드쪽에 밀려서 합선이 일어날까 걱정했는데 케이스 뚜껑을 덮으면 그런일은 일어나지 않을 것 같습니다.</p><p>근데 너무 허술합니다.</p><p><img src="/images/20200325-TB3000A/014.jpg" alt=""></p><p>케이스 뚜껑을 덮고 고정을 위해 볼트를 조여줍니다. </p><p>손 끝에 모든 감각을 동원해 토크 조절을 해야합니다. 조금이라도 힘을 더 줘서 돌리면 나사가 헛돌게 됩니다.</p><p>성능은 잘 나오는 것 같지만 생각보단 제품이 너무 허술해서 실망했네요.</p><p>이상 개봉기였습니다.</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;TB3000A-썬더볼트3-NVMe-외장-케이스-개봉기&quot;&gt;&lt;a href=&quot;#TB3000A-썬더볼트3-NVMe-외장-케이스-개봉기&quot; class=&quot;headerlink&quot; title=&quot;TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기&quot;&gt;&lt;/a&gt;TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기&lt;/h2&gt;
+      &lt;p&gt;기존 데스크탑은 Openstack 설치에 활용하기 위해 새로 구입한 맥북에 Windows를 설치 하려고 하던 중, 왠지 맥북에 Windows공간을 만드는 것이 아까워서 외장하드에 설치해볼까 해서 구매한 제품입니다.&lt;/p&gt;
+&lt;p&gt;결론적으론 아직도 설치를 못하고 삽질 중인데 ㅠㅠ 언젠간 해결이 됐으면 좋겠습니다. &lt;/p&gt;
+&lt;p&gt;(맥북프로 16인치 이후 버전부터 드라이버가 이상한건지 구성이 잘 안되네요.. 혹시 성공하신분 있으시면 알려주세요 ㅠㅠ)&lt;/p&gt;
     
     </summary>
     
