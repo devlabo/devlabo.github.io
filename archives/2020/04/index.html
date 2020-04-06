@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Megapost</title>
+<title>Archives: 2020/4 - Megapost</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Megapost">
-<meta property="og:url" content="https://megapost.io/index.html">
+<meta property="og:url" content="https://megapost.io/archives/2020/04/index.html">
 <meta property="og:site_name" content="Megapost">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://megapost.io/images/og_image.png">
@@ -87,7 +87,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/">Home</a>
                 
                 <a class="navbar-item"
@@ -129,250 +129,42 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2020/04/07/AWS-Redshift-Spectrum/" class="image is-7by1">
-            <img class="thumbnail" src="/images/aws/aws-logo.png" alt="AWS Redshift Spectrum 정리">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="tag is-link">
+        April 2020
+        </h3>
+        <div class="timeline">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-06T16:01:02.000Z">2020-04-07</time>
+            <article class="media">
                 
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Redshift/">Redshift</a>
+                <a href="/2020/04/07/AWS-Redshift-Spectrum/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/images/aws/aws-logo.png" alt="AWS Redshift Spectrum 정리">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-04-06T16:01:02.000Z">2020-04-07</time>
+                        <a href="/2020/04/07/AWS-Redshift-Spectrum/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Redshift Spectrum 정리</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Redshift/">Redshift</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 minutes read (About 543 words)
-                </span>
-                
-                
-            </div>
+            </article>
+        
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/04/07/AWS-Redshift-Spectrum/">AWS Redshift Spectrum 정리</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Redshift-Spectrum-정리"><a href="#Redshift-Spectrum-정리" class="headerlink" title="Redshift Spectrum 정리"></a>Redshift Spectrum 정리</h1><h2 id="00-목차"><a href="#00-목차" class="headerlink" title="00 목차"></a>00 목차</h2><p><a href="##01.-redshift-spectrum-schma-생성">01. Redshift Spectrum Schma 생성</a></p>
-<h2 id="01-Redshift-Spectrum-Schma-생성"><a href="#01-Redshift-Spectrum-Schma-생성" class="headerlink" title="01. Redshift Spectrum Schma 생성"></a>01. Redshift Spectrum Schma 생성</h2><ul>
-<li>스팩트럼을 사용하기 위한 Schema 생성<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">schema</span> spectrum </span><br><span class="line"><span class="keyword">from</span> <span class="keyword">data</span> <span class="keyword">catalog</span> </span><br><span class="line"><span class="keyword">database</span> <span class="string">'spectrumdb'</span> </span><br><span class="line">iam_role <span class="string">'arn:aws:iam::123456789012:role/mySpectrumRole'</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span>;</span><br></pre></td></tr></table></figure></li>
-<li>기존에 생성되어있던 Glue 카탈로그를 활용하여 생성도 가능함.<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">schema</span> spectrum_schema <span class="keyword">from</span> <span class="keyword">data</span> <span class="keyword">catalog</span> </span><br><span class="line"><span class="keyword">database</span> <span class="string">'spectrum_db'</span> </span><br><span class="line">iam_role <span class="string">'arn:aws:iam::123456789012:role/MySpectrumRole'</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span>;</span><br></pre></td></tr></table></figure></li>
-<li>EMR같은 Hive 메타스토어를 사용하는 데이터 카탈로그를 참조하는 외부스키마 생성<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">schema</span> hive_schema</span><br><span class="line"><span class="keyword">from</span> hive metastore</span><br><span class="line"><span class="keyword">database</span> <span class="string">'hive_db'</span></span><br><span class="line">uri <span class="string">'172.10.10.10'</span> port <span class="number">99</span></span><br><span class="line">iam_role <span class="string">'arn:aws:iam::123456789012:role/MySpectrumRole'</span></span><br></pre></td></tr></table></figure>
-<h2 id="02-external-table-생성"><a href="#02-external-table-생성" class="headerlink" title="02. external table 생성"></a>02. external table 생성</h2></li>
-<li>데이터가 있는 S3 버킷 경로를 지정하여 external table 생성<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> spectrum.sales(</span><br><span class="line">salesid <span class="built_in">integer</span>,</span><br><span class="line">listid <span class="built_in">integer</span>,</span><br><span class="line">sellerid <span class="built_in">integer</span>,</span><br><span class="line">buyerid <span class="built_in">integer</span>,</span><br><span class="line">eventid <span class="built_in">integer</span>,</span><br><span class="line">dateid <span class="built_in">smallint</span>,</span><br><span class="line">qtysold <span class="built_in">smallint</span>,</span><br><span class="line">pricepaid <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">commission <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">saletime <span class="built_in">timestamp</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span></span><br><span class="line"><span class="keyword">stored</span> <span class="keyword">as</span> textfile</span><br><span class="line">location <span class="string">'s3:// &lt;&lt; bucket 경로 &gt;&gt;'</span></span><br><span class="line"><span class="keyword">table</span> properties (<span class="string">'numRows'</span>=<span class="string">'172000'</span>);</span><br></pre></td></tr></table></figure></li>
-<li>parquet file 경로를 지정하여 external table 생성<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> spectrum.sales(</span><br><span class="line">salesid <span class="built_in">integer</span>,</span><br><span class="line">listid <span class="built_in">integer</span>,</span><br><span class="line">sellerid <span class="built_in">integer</span>,</span><br><span class="line">buyerid <span class="built_in">integer</span>,</span><br><span class="line">eventid <span class="built_in">integer</span>,</span><br><span class="line">dateid <span class="built_in">smallint</span>,</span><br><span class="line">qtysold <span class="built_in">smallint</span>,</span><br><span class="line">pricepaid <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">commission <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">saletime <span class="built_in">timestamp</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span></span><br><span class="line"><span class="keyword">stored</span> <span class="keyword">as</span> parquet</span><br><span class="line">location <span class="string">'s3:// &lt;&lt; bucket 경로 &gt;&gt;'</span></span><br></pre></td></tr></table></figure>
-<h2 id="03-외부-테이블-파티셔닝"><a href="#03-외부-테이블-파티셔닝" class="headerlink" title="03. 외부 테이블 파티셔닝"></a>03. 외부 테이블 파티셔닝</h2></li>
-<li>단일 파티션 분할<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> spectrum.sales_part <span class="keyword">add</span></span><br><span class="line"><span class="keyword">partition</span>(saledate=<span class="string">'2008-01-01'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/sales_partition/saledate=2008-01/'</span></span><br><span class="line"><span class="keyword">partition</span>(saledate=<span class="string">'2008-02-01'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/sales_partition/saledate=2008-02/'</span>;</span><br></pre></td></tr></table></figure></li>
-<li>여러 파티션 분할<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> spectrum.sales_event(</span><br><span class="line">salesid <span class="built_in">integer</span>,</span><br><span class="line">listid <span class="built_in">integer</span>,</span><br><span class="line">sellerid <span class="built_in">integer</span>,</span><br><span class="line">buyerid <span class="built_in">integer</span>,</span><br><span class="line">eventid <span class="built_in">integer</span>,</span><br><span class="line">dateid <span class="built_in">smallint</span>,</span><br><span class="line">qtysold <span class="built_in">smallint</span>,</span><br><span class="line">pricepaid <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">commission <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">saletime <span class="built_in">timestamp</span>)</span><br><span class="line">partitioned <span class="keyword">by</span> (salesmonth <span class="built_in">char</span>(<span class="number">10</span>), <span class="keyword">event</span> <span class="built_in">integer</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'|'</span></span><br><span class="line"><span class="keyword">stored</span> <span class="keyword">as</span> textfile</span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/'</span></span><br><span class="line"><span class="keyword">table</span> properties (<span class="string">'numRows'</span>=<span class="string">'172000'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 파티션을 추가하려면 alter table을 이용</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> spectrum.sales_event <span class="keyword">add</span></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-01'</span>, <span class="keyword">event</span>=<span class="string">'101'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-01/event=101/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-01'</span>, <span class="keyword">event</span>=<span class="string">'102'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-01/event=102/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-01'</span>, <span class="keyword">event</span>=<span class="string">'103'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-01/event=103/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-02'</span>, <span class="keyword">event</span>=<span class="string">'101'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-02/event=101/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-02'</span>, <span class="keyword">event</span>=<span class="string">'102'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-02/event=102/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-02'</span>, <span class="keyword">event</span>=<span class="string">'103'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-02/event=103/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-03'</span>, <span class="keyword">event</span>=<span class="string">'101'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-03/event=101/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-03'</span>, <span class="keyword">event</span>=<span class="string">'102'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-03/event=102/'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">partition</span>(salesmonth=<span class="string">'2008-03'</span>, <span class="keyword">event</span>=<span class="string">'103'</span>) </span><br><span class="line">location <span class="string">'s3://awssampledbuswest2/tickit/spectrum/salesevent/salesmonth=2008-03/event=103/'</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="04-Select-data"><a href="#04-Select-data" class="headerlink" title="04. Select data"></a>04. Select data</h2><ul>
-<li>가상 열 조회<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="string">"$path"</span>, <span class="string">"$size"</span></span><br><span class="line"><span class="keyword">from</span> spectrum.sales_part;</span><br><span class="line"></span><br><span class="line"> $path                                 | $size</span><br><span class="line"><span class="comment">---------------------------------------+-------</span></span><br><span class="line">s3://awssampledbuswest2/tickit/spectrum/sales_partition/saledate=2008-01/ |  1616</span><br><span class="line">s3://awssampledbuswest2/tickit/spectrum/sales_partition/saledate=2008-02/ |  1444</span><br><span class="line">s3://awssampledbuswest2/tickit/spectrum/sales_partition/saledate=2008-03/ |  1644</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
-        </div>
-        
-        
-        
     </div>
 </div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2020/03/25/TB3000A/" class="image is-7by1">
-            <img class="thumbnail" src="/images/20200325-TB3000A/001.jpg" alt="TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-25T02:12:18.000Z">2020-03-25</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%EA%B0%9C%EB%B4%89%EA%B8%B0/">개봉기</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 689 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/25/TB3000A/">TB3000A (썬더볼트3 NVMe 외장 케이스) 개봉기</a>
-            
-        </h1>
-        <div class="content">
-            <p>기존 데스크탑은 Openstack 설치에 활용하기 위해 새로 구입한 맥북에 Windows를 설치 하려고 하던 중, 왠지 맥북에 Windows공간을 만드는 것이 아까워서 외장하드에 설치해볼까 해서 구매한 제품입니다.</p>
-<p>결론적으론 아직도 설치를 못하고 삽질 중인데 ㅠㅠ 언젠간 해결이 됐으면 좋겠습니다. </p>
-<p>(맥북프로 16인치 이후 버전부터 드라이버가 이상한건지 구성이 잘 안되네요.. 혹시 성공하신분 있으시면 알려주세요 ㅠㅠ)</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/25/TB3000A/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2020/03/12/Microsoft-Ergonomic/" class="image is-7by1">
-            <img class="thumbnail" src="/images/20200312-Microsoft-Ergonomic/007.jpg" alt="Microsoft Ergonomic Mouse 개봉기">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-12T13:18:27.000Z">2020-03-12</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%EA%B0%9C%EB%B4%89%EA%B8%B0/">개봉기</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 minutes read (About 633 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/12/Microsoft-Ergonomic/">Microsoft Ergonomic Mouse 개봉기</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="마이크로소프트-에고노믹-마우스-개봉기"><a href="#마이크로소프트-에고노믹-마우스-개봉기" class="headerlink" title="마이크로소프트 에고노믹 마우스 개봉기"></a>마이크로소프트 에고노믹 마우스 개봉기</h2><p>기존에 로지텍 MX Master를 사용중이었는데 마우스가 원인인지 아닌지 모르겠지만 요즘따라 너무 손목이 아파서 고민하던 와중 마이크로소프트 에고노믹 마우스가 평이 매우 좋아서 구매를 하게 되었습니다.</p>
-<p>에고노믹 마우스도 두가지가 있던데 둥글둥글한 스컬프트 에고노믹 마우스가 있고 이번에 구매한 에고노믹 마우스가 있었습니다. 가격은 좀 나가지만 그래도 최근에 나온게 좋겠지 싶어서 최신상품으로 구매했습니다.</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/12/Microsoft-Ergonomic/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-07T15:31:15.000Z">2020-03-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 683 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/08/hexo-setting/">Github blog 시작을 위한 Hexo 설정(Ubuntu 18.04 기준)</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="HEXO-설치과정"><a href="#HEXO-설치과정" class="headerlink" title="HEXO 설치과정"></a><strong>HEXO 설치과정</strong></h2><p>Github blog를 시작하기 위해 처음에는 Jekyll을 사용하려고 했으나 생각보다(?) 사용방법이 불편했고 테마도 마음에 들지않아 알아보던 중 Hexo를 많이 사용하는 것 같아서 이번 기회에 설정을 해봤습니다.</p>
-<hr>
-<h3 id="01-Hexo설치"><a href="#01-Hexo설치" class="headerlink" title="01. Hexo설치"></a><strong>01. Hexo설치</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-cli -g</span></span><br><span class="line">loadDep:fsevents → resolv ▌ ╢████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╟</span><br><span class="line">WARN engine fsevents@2.1.2: wanted: &#123;"node":"^8.16.0 || ^10.6.0 || &gt;=11.0.0"&#125; (current: &#123;"node":"8.1/usr/local/bin/hexo -&gt; /usr/local/lib/node_modules/hexo-cli/bin/hexo</span><br><span class="line">/usr/local/lib</span><br><span class="line">└── hexo-cli@3.1.0</span><br><span class="line"></span><br><span class="line">npm WARN optional Skipping failed optional dependency /hexo-cli/chokidar/fsevents:</span><br><span class="line">npm WARN notsup Not compatible with your operating system or architecture: fsevents@2.1.2</span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/08/hexo-setting/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
