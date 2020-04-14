@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://megapost.io/2020/04/07/nvidia-jetson-nano-review/</loc>
+    
+    <lastmod>2020-04-14T04:28:46.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://megapost.io/2020/04/14/shahe-digital-vernier-calipers/</loc>
+    
+    <lastmod>2020-04-14T04:28:22.507Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://megapost.io/2020/04/09/redshift-lock/</loc>
     
     <lastmod>2020-04-14T03:03:26.938Z</lastmod>
@@ -19,20 +33,6 @@
     <loc>https://megapost.io/2020/04/07/aws-redshift-spectrum/</loc>
     
     <lastmod>2020-04-14T03:03:07.974Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://megapost.io/2020/04/14/shahe-digital-vernier-calipers/</loc>
-    
-    <lastmod>2020-04-14T00:54:00.020Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://megapost.io/2020/04/07/nvidia-jetson-nano-review/</loc>
-    
-    <lastmod>2020-04-07T05:06:23.269Z</lastmod>
     
   </url>
   
