@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://megapost.io/"/>
-  <updated>2020-04-20T03:39:09.828Z</updated>
+  <updated>2020-05-30T14:48:55.957Z</updated>
   <id>https://megapost.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>airflow 설치하기</title>
+    <link href="https://megapost.io/2020/05/30/install-airflow/"/>
+    <id>https://megapost.io/2020/05/30/install-airflow/</id>
+    <published>2020-05-30T14:13:35.000Z</published>
+    <updated>2020-05-30T14:48:55.957Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Airflow-설치하기"><a href="#Airflow-설치하기" class="headerlink" title="Airflow 설치하기"></a>Airflow 설치하기</h2><p>현재 업무에서 AWS환경을  사용 중인데 타 시스템 DB를 체크하여 현 시스템 작업을 실행해야 하는 업무가 생겼습니다.<br>물론 AWS Glue나 Lambda를 통해 구현을 해도 되지만 타 시스템 작업이 언제 끝나는지 주기적으로 (5분? 10분?) 마다 확인해야 하기 때문에 계속 수행을 하기엔 적게라도 비용이 발생하게 됩니다.<br>그래서 기존에 사용중엔 인터페이스 서버에 Airflow를 구성하여 활용해보기로 했습니다.</p><!-- more --!>### 01. pip 설치하기서버에 pip이 설치되어 있지 않으면 설치<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum install python3-pip</span></span><br></pre></td></tr></table></figure><p>이후 pip 실행 중에 아래와 같이 오류가 날 경우 삭제하고 재설치 진행</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> pip3</span></span><br><span class="line">Trackback (most recent call last):</span><br><span class="line">  File "/bin/pip3", line 7, in &lt;module&gt;</span><br><span class="line">    from pip import main</span><br><span class="line">iImportError: cannot import name 'main' from 'pip' (/usr/local/lib/python3.7/site-packages/pip/__init__.py)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> python3 -m pip uninstall pip</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span><span class="bash"> yum reinstall python3-pip</span></span><br></pre></td></tr></table></figure><h3 id="02-postgresql-설치"><a href="#02-postgresql-설치" class="headerlink" title="02. postgresql 설치"></a>02. postgresql 설치</h3><p>airflow 메타DB를 기본 sqlite를 사용할 경우 멀티잡 실행이 불가능하다 해서 메타DB를 postgresql로 설정하려고 합니다.<br>DB서버를 별도로 두기에는 좀 애매해서 docker를 이용해 postgres를 설치 했습니다.</p><p>1) docker에 postgresql 설치 및 구성</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker pull postgres:12</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span><span class="bash"> docker run -d --name airflow_meta_db -e POSTGRES_PASSWORD=password -e PGDATA=/var/lib/postgresql/data/pgdata -v /data/airflow_db:/var/lib/postgresql/data p- 5432:5432 postgres</span></span><br></pre></td></tr></table></figure><p>postgres 환경변수에 비밀번호를 넣어주고 volume은 로컬 파일시스템에 매핑 시켰습니다.</p><p>2) metadb 계정생성 및 권한 설정<br>postgres에 접속해 db 구성을 해줍니다. 접속정보는 postgres / 위에 설정한 password입니다.</p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">postgres=<span class="comment"># CREATE DATABASE airflow;</span></span><br><span class="line">postgres=<span class="comment"># CREATE USER airflow_meta with ENCRYPTED PASSWORD 'airflow_meta';</span></span><br><span class="line">postgres=<span class="comment"># GRANT all privileges on DATABASE airflow to airflow_meta;</span></span><br><span class="line">postgres=<span class="comment"># \c airflow</span></span><br><span class="line">postgres=<span class="comment"># grant all privileges on all tables in schema public to airflow_meta;</span></span><br></pre></td></tr></table></figure><h3 id="03-airflow-설치"><a href="#03-airflow-설치" class="headerlink" title="03. airflow 설치"></a>03. airflow 설치</h3><p>airflow 설치에 필요한 라이브러리 설치</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum install gcc</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> yum install python3-devel</span></span><br></pre></td></tr></table></figure><p>airflow설치</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> pip3 install apache-airflow</span></span><br></pre></td></tr></table></figure><h3 id="04-restart-script-만들기"><a href="#04-restart-script-만들기" class="headerlink" title="04. restart script 만들기"></a>04. restart script 만들기</h3><p>airflow scheduler나 webserver의 경우 restart를 하기 위해선 process를 찾아서 kill해야 하기 때문에 번거로워서 shell을 만들었습니다.</p><p>1) restart_scheduler.sh</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">kill -9 `ps -ef | grep 'airflow scheduler' | awk '&#123;print $2&#125;'`</span><br><span class="line"></span><br><span class="line">airflow scheduler -D</span><br></pre></td></tr></table></figure><p>2) restart_webserver.sh</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">kill -9 `ps -ef | grep 'airflow webserver' | awk '&#123;print $2&#125;'`</span><br><span class="line">kill -9 `ps -ef | grep 'airflow-webserver' | awk '&#123;print $2&#125;'`</span><br><span class="line"></span><br><span class="line">airflow webserver -p 8080 -D</span><br></pre></td></tr></table></figure><h3 id="05-airflow-cfg설정-수정"><a href="#05-airflow-cfg설정-수정" class="headerlink" title="05. airflow.cfg설정 수정"></a>05. airflow.cfg설정 수정</h3><p>metadb를 postgresql을 사용하기 위해 설정을 수정해 줍니다.</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">executor &#x3D; CeleryExecutor</span><br><span class="line">sql_alchemy_conn &#x3D; postgresql+psycopg2:&#x2F;&#x2F;airflow_meta:airflow_meta@localhost&#x2F;airflow</span><br></pre></td></tr></table></figure><h3 id="06-DB설정-초기화"><a href="#06-DB설정-초기화" class="headerlink" title="06. DB설정 초기화"></a>06. DB설정 초기화</h3><p>아래 명령어를 통해 DB초기화를 해줍니다.</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> airflow initdb</span></span><br></pre></td></tr></table></figure><p>이렇게 구성한 후 아까 생성했던 restart script를 실행해 주면 airflow를 사용할 기본 환경설정이 완료 되었습니다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Airflow-설치하기&quot;&gt;&lt;a href=&quot;#Airflow-설치하기&quot; class=&quot;headerlink&quot; title=&quot;Airflow 설치하기&quot;&gt;&lt;/a&gt;Airflow 설치하기&lt;/h2&gt;&lt;p&gt;현재 업무에서 AWS환경을  사용 중인데 타 시스템 D
+      
+    
+    </summary>
+    
+    
+      <category term="airflow" scheme="https://megapost.io/categories/airflow/"/>
+    
+    
+      <category term="airflow" scheme="https://megapost.io/tags/airflow/"/>
+    
+      <category term="postgres" scheme="https://megapost.io/tags/postgres/"/>
+    
+      <category term="etl" scheme="https://megapost.io/tags/etl/"/>
+    
+  </entry>
   
   <entry>
     <title>3D프린터 Ender-5 Pro 구입 및 조립기</title>
