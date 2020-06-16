@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://megapost.io/2020/05/30/install-airflow/</loc>
+    <loc>https://megapost.io/2020/06/17/ender5-marlin/</loc>
     
-    <lastmod>2020-05-30T14:52:18.704Z</lastmod>
+    <lastmod>2020-06-16T23:27:15.742Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://megapost.io/2020/04/20/ender-5-pro/</loc>
     
-    <lastmod>2020-04-20T03:39:09.828Z</lastmod>
+    <lastmod>2020-06-16T22:59:43.885Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://megapost.io/2020/05/30/install-airflow/</loc>
+    
+    <lastmod>2020-05-30T14:52:18.704Z</lastmod>
     
   </url>
   
