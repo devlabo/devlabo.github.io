@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://megapost.io/"/>
-  <updated>2020-06-16T23:27:15.742Z</updated>
+  <updated>2020-06-17T00:28:39.748Z</updated>
   <id>https://megapost.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ender-5 Pro BLtouch(오토레벨링센서) 설치</title>
+    <link href="https://megapost.io/2020/06/17/ender5-bltouch/"/>
+    <id>https://megapost.io/2020/06/17/ender5-bltouch/</id>
+    <published>2020-06-16T23:58:27.000Z</published>
+    <updated>2020-06-17T00:28:39.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ender-5 가 레벨링은 그나마 하기 쉬운편이라고는 하나 4군데 레벨링을 하다 보면 가운데가 안맞고, 다시 이곳저곳 조절하다보니 너무 불편한 것 같아 오토레벨링 센서를 장착 했습니다.</p><p>Ender-3는 국내에 BLtouch를 장착해서 판매하는 곳도 있는데 Ender-5는 Plus모델에만 장착해서 나오는 것 같습니다.<br>(이럴꺼면 그냥 Plus모델을 구매할껄 그랬네요…)</p><p>BLtouch 장착 역시 아래 유투브를 참고해서 진행 했습니다. (이 유투버 아저씨 이제는 친숙하네요)</p><a id="more"></a><p><a href="http://youtube.com/watch?v=iAz47riSjLQ">http://youtube.com/watch?v=iAz47riSjLQ</a></p><p>BLTouch 구매시 연장케이블이 있는 제품을 구매하는 것이 좋습니다. 저는 모르고 샀다가 직접 전선 연장했습니다.</p><p>장착 가이드는 들어있는 제품을 구매하셔도 되고 직접 출력하셔도 됩니다.<br><a href="https://www.thingiverse.com/thing:3383611">https://www.thingiverse.com/thing:3383611</a></p><p>그리고 아래 이미지와 같은 pin27 board가 있으면 장착하기 더 쉽습니다. (아니면 납땜 하셔야 합니다..)<br>국내에도 팔긴 하나 알리가 저렴해서 시간에 여유가 있으시면 알리에서 구매하는걸 추천 드립니다.</p><p><img src="/images/20200617-ender5-bltouch/2.jpg" alt=""></p><p>BLtouch 장착 시 유의할 점은 pin27 board에 BLtouch 선 연결 시 5V, GND, SIG 위치를 잘 보고 연결 하셔야합니다. Board에 따라서 위치가 조금씩 다르기 때문에 위치 조절을 해줘야 합니다. (해당 부분도 youtube에 나옵니다. 여러번 확인하라는 멘트와 함께..)</p><p>그리고 board에 연결한 검은색/흰색 선도 방향이 틀리면 센서가 동작하지 않습니다. 꼭 원래 연결되어있던 센서 선을 확인하시고 거기에 맞게 연결 해주셔야합니다.</p><p><img src="/images/20200617-ender5-bltouch/1.jpg" alt=""></p><ul><li>BLtouch 장착 시 가장 힘들었던 부분</li></ul><p>장착이 완료되었으면 펌웨어 수정이 필요합니다. </p><p>수정 역시 youtube 영상을 그대로 따라하시면 됩니다.</p><p>소스에서 BLtouch를 활성화 하면 아마 펌웨어 업로드 시 용량이 부족하다고 나옵니다. 그래서 일부 기존에 있던 기능을 비활성화 해야합니다. 이 역시 youtube영상을 잘 참고하시면 됩니다.</p><p>그리고 꼭 슬라이서에서 G코드 추가 하는 부분도 하셔야 오토레벨링(9군데를 콕콕)이 작동합니다. 이것도 영상에 있는데 별거 아닌줄알고 빼먹었다가 가운데만 레벨링해서 BLtouch에 실망했던 적이 있습니다.</p><p>모든 설정이 완료되면 프린터 전원을 넣고 Auto home을 선택하고 bltouch센서를 건들여서 센서가 잘 동작하는지 꼭 확인합니다.<br>센서가 동작 안해서 보드를 긁어먹는 사례가 많이 있습니다.</p><p>센서까지 잘 동작되는 것을 확인하면 가운데 기준으로 수동으로 레벨링을 해줍니다. BLtouch 장착 후 펌웨어 수정 작업을 하면 프린터 메뉴에서 보드를 위아래로 움직이며 레벨링이 가능합니다. 가운데 레벨링만 해주면 나머지 부분은 출력 전 프린터에서 알아서 레벨링을 해줍니다.</p><p>이렇게 하면 모든 설정이 완료됩니다.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ender-5 가 레벨링은 그나마 하기 쉬운편이라고는 하나 4군데 레벨링을 하다 보면 가운데가 안맞고, 다시 이곳저곳 조절하다보니 너무 불편한 것 같아 오토레벨링 센서를 장착 했습니다.&lt;/p&gt;
+&lt;p&gt;Ender-3는 국내에 BLtouch를 장착해서 판매하는 곳도 있는데 Ender-5는 Plus모델에만 장착해서 나오는 것 같습니다.&lt;br&gt;(이럴꺼면 그냥 Plus모델을 구매할껄 그랬네요…)&lt;/p&gt;
+&lt;p&gt;BLtouch 장착 역시 아래 유투브를 참고해서 진행 했습니다. (이 유투버 아저씨 이제는 친숙하네요)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="3dprinter" scheme="https://megapost.io/categories/3dprinter/"/>
+    
+    
+      <category term="3dprinter" scheme="https://megapost.io/tags/3dprinter/"/>
+    
+      <category term="BLtouch" scheme="https://megapost.io/tags/BLtouch/"/>
+    
+      <category term="오토레벨링" scheme="https://megapost.io/tags/%EC%98%A4%ED%86%A0%EB%A0%88%EB%B2%A8%EB%A7%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Ender-5 Pro marlin 1.1.9 펌웨어 업그레이드 및 Z축 문제 해결</title>
