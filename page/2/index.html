@@ -133,6 +133,59 @@
     
 <div class="card">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-30T14:13:35.000Z">2020-05-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/airflow/">airflow</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 699 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/05/30/install-airflow/">airflow 설치하기</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Airflow-설치하기"><a href="#Airflow-설치하기" class="headerlink" title="Airflow 설치하기"></a>Airflow 설치하기</h2><p>현재 업무에서 AWS환경을  사용 중인데 타 시스템 DB를 체크하여 현 시스템 작업을 실행해야 하는 업무가 생겼습니다.<br>물론 AWS Glue나 Lambda를 통해 구현을 해도 되지만 타 시스템 작업이 언제 끝나는지 주기적으로 (5분? 10분?) 마다 확인해야 하기 때문에 계속 수행을 하기엔 적게라도 비용이 발생하게 됩니다.<br>그래서 기존에 사용중엔 인터페이스 서버에 Airflow를 구성하여 활용해보기로 했습니다.</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/05/30/install-airflow/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
     <div class="card-image">
         <a href="/2020/04/20/ender-5-pro/" class="image is-7by1">
             <img class="thumbnail" src="/images/ender5/029.jpg" alt="3D프린터 Ender-5 Pro 구입 및 조립기">
@@ -253,67 +306,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-09T09:20:35.000Z">2020-04-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Redshift/">Redshift</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 minutes read (About 542 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/04/09/redshift-lock/">Redshift table lock관련 가이드</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="01-Redshift-Lock-leve"><a href="#01-Redshift-Lock-leve" class="headerlink" title="01. Redshift Lock leve"></a>01. Redshift Lock leve</h3><ul>
-<li>AccessExclusiveLock: ALTER TABLE, DROP 또는 TRUNCATE와 같은 DDL 작업 중에 주로 획득. AccessExclusiveLock은 다른 모든 잠금 시도를 차단.</li>
-<li>AccessShareLock: UNLOAD, SELECT, UPDATE 또는 DELETE 작업 중에 획득. AccessShareLock은 AccessExclusiveLock 시도만 차단. AccessShareLock은 테이블에서 읽기 또는 쓰기를 시도하는 다른 세션을 차단하지 않음.</li>
-<li>ShareRowExclusiveLock: COPY, INSERT, UPDATE 또는 DELETE 작업 중에 획득. ShareRowExclusiveLock은 AccessExclusiveLock 및 기타 ShareRowExclusiveLock 시도를 차단하지만, AccessShareLock 시도는 차단하지 않음.</li>
-</ul>
-<h3 id="02-Blocking-방지-가이드"><a href="#02-Blocking-방지-가이드" class="headerlink" title="02. Blocking 방지 가이드"></a>02. Blocking 방지 가이드</h3><ul>
-<li>ExclusiveLock (X-LOCK)을 유발하는 DDL 구문이 포함된 트랜잭션은 짧게 유지. 혹은 하나의 프로시저에 DDL 구문과 DML 작업이 함께 존재하는 경우, 개별 트랜잭션으로 분리하는 것도 방법.</li>
-<li>대량의 INSERT/UPDATE/DELETE는 스테이징 테이블을 활용한 UPSERT, ALTER TABLE APPEND 구문 사용을 권장.</li>
-<li>쿼리 실행 시간 기준 TOP 10 쿼리나, 아래의 Lock을 유발하는 쿼리의 실행 시간을 줄이기 위한 튜닝 필요
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/04/09/redshift-lock/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -333,6 +325,8 @@
             <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/5/">5</a></li>
             
         </ul>
     </nav>
@@ -382,7 +376,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -394,7 +388,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            9
                         </p>
                     </a>
                 </div>
@@ -406,7 +400,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            29
+                            31
                         </p>
                     </a>
                 </div>
@@ -497,6 +491,22 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/GraphDB/">
+            <span class="level-start">
+                <span class="level-item">GraphDB</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/GraphDB/ArangoDB/">
+            <span class="level-start">
+                <span class="level-item">ArangoDB</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Hexo/">
             <span class="level-start">
                 <span class="level-item">Hexo</span>
@@ -539,7 +549,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/3dprinter/" style="font-size: 20px;">3dprinter</a> <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/BLtouch/" style="font-size: 10px;">BLtouch</a> <a href="/tags/Ergonomic/" style="font-size: 10px;">Ergonomic</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JetBot/" style="font-size: 10px;">JetBot</a> <a href="/tags/Jetson/" style="font-size: 10px;">Jetson</a> <a href="/tags/Lock/" style="font-size: 10px;">Lock</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Mouse/" style="font-size: 10px;">Mouse</a> <a href="/tags/OpenStack/" style="font-size: 10px;">OpenStack</a> <a href="/tags/Redshift/" style="font-size: 15px;">Redshift</a> <a href="/tags/SHAHE/" style="font-size: 10px;">SHAHE</a> <a href="/tags/Spectrum/" style="font-size: 10px;">Spectrum</a> <a href="/tags/TB3000A/" style="font-size: 10px;">TB3000A</a> <a href="/tags/Thunderbolt3/" style="font-size: 10px;">Thunderbolt3</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/ender5/" style="font-size: 10px;">ender5</a> <a href="/tags/etl/" style="font-size: 10px;">etl</a> <a href="/tags/marlin/" style="font-size: 10px;">marlin</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/nvme/" style="font-size: 10px;">nvme</a> <a href="/tags/parquet/" style="font-size: 10px;">parquet</a> <a href="/tags/postgres/" style="font-size: 10px;">postgres</a> <a href="/tags/%EB%B2%84%EB%8B%88%EC%96%B4%EC%BA%98%EB%A6%AC%ED%8D%BC%EC%8A%A4/" style="font-size: 10px;">버니어캘리퍼스</a> <a href="/tags/%EC%98%A4%ED%86%A0%EB%A0%88%EB%B2%A8%EB%A7%81/" style="font-size: 10px;">오토레벨링</a> <a href="/tags/%EC%BA%98%EB%A6%AC%ED%8D%BC/" style="font-size: 10px;">캘리퍼</a>
+        <a href="/tags/3dprinter/" style="font-size: 20px;">3dprinter</a> <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/ArangoDB/" style="font-size: 10px;">ArangoDB</a> <a href="/tags/BLtouch/" style="font-size: 10px;">BLtouch</a> <a href="/tags/Ergonomic/" style="font-size: 10px;">Ergonomic</a> <a href="/tags/GraphDB/" style="font-size: 10px;">GraphDB</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JetBot/" style="font-size: 10px;">JetBot</a> <a href="/tags/Jetson/" style="font-size: 10px;">Jetson</a> <a href="/tags/Lock/" style="font-size: 10px;">Lock</a> <a href="/tags/Microsoft/" style="font-size: 10px;">Microsoft</a> <a href="/tags/Mouse/" style="font-size: 10px;">Mouse</a> <a href="/tags/OpenStack/" style="font-size: 10px;">OpenStack</a> <a href="/tags/Redshift/" style="font-size: 15px;">Redshift</a> <a href="/tags/SHAHE/" style="font-size: 10px;">SHAHE</a> <a href="/tags/Spectrum/" style="font-size: 10px;">Spectrum</a> <a href="/tags/TB3000A/" style="font-size: 10px;">TB3000A</a> <a href="/tags/Thunderbolt3/" style="font-size: 10px;">Thunderbolt3</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/ender5/" style="font-size: 10px;">ender5</a> <a href="/tags/etl/" style="font-size: 10px;">etl</a> <a href="/tags/marlin/" style="font-size: 10px;">marlin</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/nvidia/" style="font-size: 10px;">nvidia</a> <a href="/tags/nvme/" style="font-size: 10px;">nvme</a> <a href="/tags/parquet/" style="font-size: 10px;">parquet</a> <a href="/tags/postgres/" style="font-size: 10px;">postgres</a> <a href="/tags/%EB%B2%84%EB%8B%88%EC%96%B4%EC%BA%98%EB%A6%AC%ED%8D%BC%EC%8A%A4/" style="font-size: 10px;">버니어캘리퍼스</a> <a href="/tags/%EC%98%A4%ED%86%A0%EB%A0%88%EB%B2%A8%EB%A7%81/" style="font-size: 10px;">오토레벨링</a> <a href="/tags/%EC%BA%98%EB%A6%AC%ED%8D%BC/" style="font-size: 10px;">캘리퍼</a>
     </div>
 </div>
     
@@ -548,6 +558,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/07/19/01-install-arangodb/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="01.ArangoDB 설치 및 python에서 사용">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-18T16:09:23.000Z">2020-07-19</time></div>
+                    <a href="/2020/07/19/01-install-arangodb/" class="title has-link-black-ter is-size-6 has-text-weight-normal">01.ArangoDB 설치 및 python에서 사용</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/GraphDB/">GraphDB</a> / <a class="has-link-grey -link" href="/categories/GraphDB/ArangoDB/">ArangoDB</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -625,25 +654,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/14/shahe-digital-vernier-calipers/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/vc/tn.jpg" alt="SHAHE 디지털 버니어 캘리퍼스">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T00:35:29.000Z">2020-04-14</time></div>
-                    <a href="/2020/04/14/shahe-digital-vernier-calipers/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SHAHE 디지털 버니어 캘리퍼스</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%EA%B0%9C%EB%B4%89%EA%B8%B0/">개봉기</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -654,6 +664,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/06/">
@@ -727,6 +748,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ArangoDB/">
+                        <span class="tag">ArangoDB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/BLtouch/">
                         <span class="tag">BLtouch</span>
                         <span class="tag is-grey">1</span>
@@ -736,6 +764,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Ergonomic/">
                         <span class="tag">Ergonomic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/GraphDB/">
+                        <span class="tag">GraphDB</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://megapost.io/"/>
-  <updated>2020-06-17T00:33:20.160Z</updated>
+  <updated>2020-07-18T16:11:23.572Z</updated>
   <id>https://megapost.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>01.ArangoDB 설치 및 python에서 사용</title>
+    <link href="https://megapost.io/2020/07/19/01-install-arangodb/"/>
+    <id>https://megapost.io/2020/07/19/01-install-arangodb/</id>
+    <published>2020-07-18T16:09:23.000Z</published>
+    <updated>2020-07-18T16:11:23.572Z</updated>
+    
+    <content type="html"><![CDATA[<p>GraphDB 공부도 해볼겸 업무에 적용해 보려고 계획하던 중 친구에게 ArangoDB라는 것을 듣게 되었습니다.</p><p>보통 GraphDB로 많이 사용하는 것은 neo4j나 카카오의 S2Graph정도만 들어봤었는데 ArangoDB는 뭔가 이름부터 신선해서 사용해 보기로 했습니다.</p><p>회사에서 AWS를 사용하지만 EC2를 생성하는데 제약(?)이 있어서 기존에 사용하던 개발기에 Docker를 통해 설치해보기로 했습니다.</p><a id="more"></a><h2 id="01-ArangoDB-설치하기"><a href="#01-ArangoDB-설치하기" class="headerlink" title="01.ArangoDB 설치하기"></a>01.ArangoDB 설치하기</h2><p>Docker를 이용해 아래 명령으로 간단하게 설치가 완료 됩니다.</p><blockquote><p>docker run -p 8529:8529 -e ARANGO_ROOT_PASSWORD=… \<br>    -v /data/arangodb/data:/var/lib/arangodb3 \<br>    -v /data/arangodb/app:/var/lib/arangodb3-app \<br>    -d arangodb/arangodb:3.6.4</p></blockquote><p>DB사용에 필요한 데이터는 로컬디스크로 마운트 시켜줬습니다.</p><p>이제 웹으로 docker container 생성 시 지정한 포트로 접속할 수 있습니다.</p><p><img src="/images/arangodb/arangodb_001.png" alt=""></p><p>기본 user는 root이고 password는 docker생성시 지정했던 패스워드입니다.</p><p><img src="/images/arangodb/arangodb_002.png" alt=""></p><p>DB를 select해줍니다. 최초 접속 시 db는 _system만 존재합니다.</p><p><img src="/images/arangodb/arangodb_003.png" alt=""></p><p>DB를 컨트롤 할 수 있는 다양한 매뉴들이 보입니다.</p><h2 id="02-Python모듈-설치-및-샘플-데이터-넣기"><a href="#02-Python모듈-설치-및-샘플-데이터-넣기" class="headerlink" title="02. Python모듈 설치 및 샘플 데이터 넣기"></a>02. Python모듈 설치 및 샘플 데이터 넣기</h2><p>ArangoDB 공홈에서 python사용 가이드를 제공하고 있습니다.<br><a href="https://www.arangodb.com/tutorials/tutorial-python/">https://www.arangodb.com/tutorials/tutorial-python/</a></p><p>아래 python 연동 방법은 공홈 가이드와 동일합니다.</p><p>python에서 arangodb를 사용하기 위해서는 pyarango모듈을 설치하면 됩니다.</p><blockquote><p>pip install pyarango</p></blockquote><ul><li>arango connection</li></ul><blockquote><p>&gt;&gt;&gt; from pyArango.connection import *<br>&gt;&gt;&gt; conn = Connection(username=”root”, password=””)</p></blockquote><ul><li>Creating and Opening Databases</li></ul><p>“school”이라는 Database를 새로 생성합니다.</p><blockquote><p>db = conn.createDatabase(name=”school”)</p></blockquote><p>만약 기존에 사용하고 있던 Database가 있다고 하면 아래와 같이 사용할 데이터베이스를 지정해주면 됩니다.</p><ul><li><p>Opening database</p><blockquote><p>&gt;&gt;&gt; db = conn[“school”]<br>db<br>ArangoDB database: school</p></blockquote></li><li><p>Creating Collections<br>Collection은 Arangodb에서 사용하는 Document와 Edge의 그룹입니다.</p></li></ul><blockquote><p>&gt;&gt;&gt; studentsCollection = db.createCollection(name=”Students”)<br>&gt;&gt;&gt; db[“Students”]<br>ArangoDB Collection name: Students, id: 202, type: document, status loaded</p></blockquote><ul><li>Creating Documents</li></ul><blockquote><p>&gt;&gt;&gt; doc1 = studentsCollection.createDocument()<br>&gt;&gt;&gt; doc1[“name”] = “John Smith”<br>&gt;&gt;&gt; doc1<br>ArangoDoc ‘None’: {‘name’: ‘John Smith’}<br>&gt;&gt;&gt; doc2 = studentsCollection.createDocument()<br>&gt;&gt;&gt; doc2[“firstname”] = “Emily”<br>&gt;&gt;&gt; doc2[“lastname”] = “Bronte”<br>&gt;&gt;&gt; doc2<br>ArangoDoc ‘None’: {‘firstname’: ‘Emily’, ‘lastname’: ‘Bronte’}</p></blockquote><p>json형태의 document를 만들고 _key를 지정한 후 저장합니다.</p><blockquote><p>&gt;&gt;&gt; doc1._key = “johnsmith”<br>&gt;&gt;&gt; doc1.save()<br>&gt;&gt;&gt; doc1<br>ArangoDoc ‘Students/johnsmith’: {‘name’: ‘John Smith’}</p></blockquote><p>데이터를 저장하는 방법까지 배웠으니 다음에는 실 운영 데이터를 마이그레이션 해보려고 합니다.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;GraphDB 공부도 해볼겸 업무에 적용해 보려고 계획하던 중 친구에게 ArangoDB라는 것을 듣게 되었습니다.&lt;/p&gt;
+&lt;p&gt;보통 GraphDB로 많이 사용하는 것은 neo4j나 카카오의 S2Graph정도만 들어봤었는데 ArangoDB는 뭔가 이름부터 신선해서 사용해 보기로 했습니다.&lt;/p&gt;
+&lt;p&gt;회사에서 AWS를 사용하지만 EC2를 생성하는데 제약(?)이 있어서 기존에 사용하던 개발기에 Docker를 통해 설치해보기로 했습니다.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="GraphDB" scheme="https://megapost.io/categories/GraphDB/"/>
+    
+      <category term="ArangoDB" scheme="https://megapost.io/categories/GraphDB/ArangoDB/"/>
+    
+    
+      <category term="GraphDB" scheme="https://megapost.io/tags/GraphDB/"/>
+    
+      <category term="ArangoDB" scheme="https://megapost.io/tags/ArangoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>Ender-5 Pro BLtouch(오토레벨링센서) 설치</title>
