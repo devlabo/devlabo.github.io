@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://megapost.io/images/og_image.png">
 <meta property="article:published_time" content="2020-07-18T16:09:23.000Z">
-<meta property="article:modified_time" content="2020-07-18T16:11:23.572Z">
+<meta property="article:modified_time" content="2020-07-18T16:17:23.165Z">
 <meta property="article:author" content="Deviroid">
 <meta property="article:tag" content="GraphDB">
 <meta property="article:tag" content="ArangoDB">
@@ -201,13 +201,13 @@
 </blockquote>
 <p>만약 기존에 사용하고 있던 Database가 있다고 하면 아래와 같이 사용할 데이터베이스를 지정해주면 됩니다.</p>
 <ul>
-<li><p>Opening database</p>
+<li>Opening database</li>
+</ul>
 <blockquote>
 <p>&gt;&gt;&gt; db = conn[“school”]<br>db<br>ArangoDB database: school</p>
 </blockquote>
-</li>
-<li><p>Creating Collections<br>Collection은 Arangodb에서 사용하는 Document와 Edge의 그룹입니다.</p>
-</li>
+<ul>
+<li>Creating Collections<br>Collection은 Arangodb에서 사용하는 Document와 Edge의 그룹입니다.</li>
 </ul>
 <blockquote>
 <p>&gt;&gt;&gt; studentsCollection = db.createCollection(name=”Students”)<br>&gt;&gt;&gt; db[“Students”]<br>ArangoDB Collection name: Students, id: 202, type: document, status loaded</p>
